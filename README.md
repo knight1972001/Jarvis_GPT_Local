@@ -37,3 +37,5 @@ python -m llama_cpp.server --model "./model/mistral-7b-openorca.Q4_0.gguf" --cha
 
 - You can create new chat, select old chat, continue old chat.
 - All data will be saved to mongoDB.
+- ![image](https://github.com/knight1972001/Jarvis_GPT_Local/assets/60019805/5d508f00-a09b-4706-ac09-7a6367c69f26)
+
