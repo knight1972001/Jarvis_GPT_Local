@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# JARVIS GPT LOCAL
 
-First, run the development server:
+This is a local running chatbot using LLM Model and Llama. To this app work, you need a web server using [Llama](https://github.com/abetlen/llama-cpp-python)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Front-End: ![Static Badge](https://img.shields.io/badge/NextJS-000000) ![Static Badge](https://img.shields.io/badge/MongoDB-00F35F) ![Static Badge](https://img.shields.io/badge/Pusher-300D4F) ![Static Badge](https://img.shields.io/badge/TailwindCSS-0EA5E9) ![Static Badge](https://img.shields.io/badge/Shadcn%20UI-09090B) ![Static Badge](https://img.shields.io/badge/Typescript-3178C6)
+
+## Prerequisite
+
+- LLM Model: You can get from any source. I recommend from [https://huggingface.co/](https://huggingface.co/)
+- Llama Installed: You can follow the instruction from [here](https://github.com/abetlen/llama-cpp-python)
+- Python
+
+## Installation
+
+- Pulling this code
+- Run npm command for building a project is `npm run build`
+- Run the server using `npm run dev`
+- This app also using MongoDB API, Pusher, so you need to setup `.env` file
+
+```javascript
+MONGODB_API  = {MONGODB_API_ENDPOINT}
+MONGDODB_API_KEY  = {MONGDODB_API_KEY}
+LOCAL_ENDPOINT  = {LOCAL_ENDPOINT_Llama_Server}
+PUSHER_APP_ID  = {PUSHER_APP_ID}
+NEXT_PUBLIC_PUSHER_APP_KEY  = {NEXT_PUBLIC_PUSHER_APP_KEY}
+PUSHER_APP_SECRET  = {PUSHER_APP_SECRET}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Remember Run Llama server. For example:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+python -m llama_cpp.server --model "./model/mistral-7b-openorca.Q4_0.gguf" --chat_format chatml --n_gpu_layers 1
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Chatbot
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- You can create new chat, select old chat, continue old chat.
+- All data will be saved to mongoDB.
